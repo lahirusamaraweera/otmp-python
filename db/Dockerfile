@@ -1,0 +1,3 @@
+FROM mysql:5.7.23
+
+ENV MYSQL_ROOT_PASSWORD=root

@@ -10,9 +10,8 @@ def current_datetime(request):
 
 def test(request):
     dic = {'abc' : 'tesst'}
-    br = baseResponder()
+    br = baseResponder('application/json')
     br.setHeaders(dic)
-    br.setContentType('application/json')
     sample_da = {
         'name' : 2
     }

@@ -7,6 +7,9 @@ class baseResponder:
     headers = {}
     content_type = 'text/plain'
 
+    def __init__(self, content_type):
+        self.content_type = content_type
+
     def setHeaders(self, headers):
         self.headers = headers
 

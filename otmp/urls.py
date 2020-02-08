@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user.views import current_datetime,test
+from item.views import getAllItems
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', current_datetime),
-    path('items/', test)
+    path('items/', getAllItems)
 ]

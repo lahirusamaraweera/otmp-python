@@ -1,5 +1,5 @@
 from django.db import models
-from common.model import BaseModel
+from common.baseModel import BaseModel
 
 class item(models.Model, BaseModel):
     name = models.CharField(max_length=200)

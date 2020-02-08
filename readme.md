@@ -14,3 +14,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
+## To update the file permissions
+
+```bash
+
+sudo chown -R $USER:$USER .
+
+```

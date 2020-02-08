@@ -21,5 +21,5 @@ from user.views import current_datetime,test
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', current_datetime),
-    path('lahiru/', test)
+    path('items/', test)
 ]

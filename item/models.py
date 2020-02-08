@@ -11,5 +11,7 @@ class item(models.Model, BaseModel):
     def toDic(self):
         return {
             "name" : self.name,
-            "price" : float(self.price)
+            "price" : float(self.price),
+            "currency" : self.currency,
+            "description" : self.description
         }

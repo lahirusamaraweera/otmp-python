@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from user.views import current_datetime,test
+from user.views import current_datetime
 from item.views import getAllItems
 
 

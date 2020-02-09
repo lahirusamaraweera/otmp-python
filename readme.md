@@ -22,10 +22,11 @@ sudo docker-compose build
 ``` bash
 sudo docker-compose up
 ```
+Note : django app will automatically starts with this. you can access by visiting http://localhost:8000
 
 ## Login to the web_app conatiner
-```
-sudo docker exec -it <contaner_name bash   
+```bash
+sudo docker exec -it <contaner_name> bash   
 ```
 in this case container will be otmp_web_1
 
@@ -42,3 +43,22 @@ Once you create a app in the docker conatiner, you will not be able to edit the 
 ```bash
 sudo chown -R $USER:$USER .
 ```
+
+
+## How to run angular application
+
+To run front end angular application
+
+1. Login to the container
+```bash
+sudo docker exec -it <contaner_name> bash   
+```
+2. change the path the static
+```bash
+cd static
+```
+3. run the app
+```bash
+ng serve --host 0.0.0.0
+```
+4. now you can visit the anguar app in http://localhost:4201

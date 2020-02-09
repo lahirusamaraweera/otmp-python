@@ -1,7 +1,7 @@
 
 from django.db import models
 from common.baseModel import BaseModel
-from item.model.category import category
+from item.models.category import category
 
 class item(models.Model, BaseModel):
     name = models.CharField(max_length=200)

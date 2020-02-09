@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from common.baseResponder import baseResponder
-# from .models import item, category
-from .model.category import category
-from .model.item import item
+from .models.category import category
+from .models.item import item
+from .models.stock import stock
 from django.shortcuts import get_object_or_404
 import json
 
@@ -46,3 +46,8 @@ def handleCategories(request):
         dataset = category.getAll(category)
     return br.success(dataset)
 
+def getStocksFroItem(render, stock_id):
+    br = baseResponder('application/json')
+    stock_dataset = stock.getStocksForItem(stock_id)
+    return br.success(stock_dataset)
+    

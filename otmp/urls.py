@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user.views import current_datetime
-from item.views import handleItems, handleSpecifcItem, handleCategories
+from item.views import handleItems, handleSpecifcItem, handleCategories, getStocksFroItem
 
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     path('', current_datetime),
     path('items', handleItems),
     path('items/<int:id>', handleSpecifcItem),
+    path('itemstock/<int:stock_id>', getStocksFroItem),
     path('category', handleCategories)
 ]

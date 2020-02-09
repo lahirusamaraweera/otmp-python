@@ -6,10 +6,15 @@ class BaseModel():
 
     @staticmethod
     def getAll(cls):
-        print(cls)
+        # print(cls)
         dataset = []
         items = cls.objects.all()
-        for item in items:
+        return cls.getAllToArray(items)
+    
+    @staticmethod
+    def getAllToArray(objects):
+        dataset = []
+        for item in objects:
             dataset.append(item.toDic())
         return dataset
 

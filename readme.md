@@ -1,4 +1,4 @@
-# Online Transpot Management Platform
+# POC - Django Docker MYSQL CURD Application
 
 ## Installation
 
@@ -23,7 +23,7 @@ sudo docker-compose build
 sudo docker-compose up
 ```
 
-## Login to the  web_app conatiner
+## Login to the web_app conatiner
 ```
 sudo docker exec -it <contaner_name bash   
 ```

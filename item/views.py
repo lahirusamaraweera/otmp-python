@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from common.baseResponder import baseResponder
-from .models import item, category
+# from .models import item, category
+from .model.category import category
+from .model.item import item
 from django.shortcuts import get_object_or_404
 import json
 

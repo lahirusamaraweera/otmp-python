@@ -9,10 +9,10 @@ from item.views.stock import getStocksFroItem, handleSpecifcStock
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', current_datetime),
-    path('items', handleItems),
-    path('items/<int:id>', handleSpecifcItem),
-    path('itemstock/<int:item_id>', getStocksFroItem),
-    path('stocks/<int:id>', handleSpecifcStock),
-    path('categories', handleCategories),
-    path('categories/<int:id>', handleSpecificCategory)
+    path('api/items', handleItems),
+    path('api/items/<int:id>', handleSpecifcItem),
+    path('api/itemstock/<int:item_id>', getStocksFroItem),
+    path('api/stocks/<int:id>', handleSpecifcStock),
+    path('api/categories', handleCategories),
+    path('api/categories/<int:id>', handleSpecificCategory)
 ]

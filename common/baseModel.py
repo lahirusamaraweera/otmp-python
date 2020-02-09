@@ -35,3 +35,4 @@ class BaseModel():
             
     def isPropertyExists(self, attribute):
         return hasattr(self, attribute)
+    

@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from common.baseResponder import baseResponder
-from .models.category import category
-from .models.item import item
-from .models.stock import stock
-from django.shortcuts import get_object_or_404
+from item.models.item import item
 import json
 
 def handleItems(request):
@@ -32,22 +29,3 @@ def handleSpecifcItem(request, id):
             return br.conflict('something went wrong')
            
     return br.success(related_item.toDic())
-
-def handleCategories(request):
-    dataset = {}
-    br = baseResponder('application/json')
-    if("POST" == request.method):
-        payload = json.loads(request.body)
-        new_category = category()
-        new_category.setAll(payload)
-        new_category.save()
-        dataset = new_category.toDic()
-    else:
-        dataset = category.getAll(category)
-    return br.success(dataset)
-
-def getStocksFroItem(render, stock_id):
-    br = baseResponder('application/json')
-    stock_dataset = stock.getStocksForItem(stock_id)
-    return br.success(stock_dataset)
-    

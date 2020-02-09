@@ -1,22 +1,9 @@
-"""otmp URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from user.views import current_datetime
-from item.views import handleItems, handleSpecifcItem, handleCategories, getStocksFroItem
+from item.views.item import handleItems, handleSpecifcItem
+from item.views.category import handleCategories
+from item.views.stock import getStocksFroItem, handleSpecifcStock
 
 
 urlpatterns = [
@@ -24,6 +11,8 @@ urlpatterns = [
     path('', current_datetime),
     path('items', handleItems),
     path('items/<int:id>', handleSpecifcItem),
-    path('itemstock/<int:stock_id>', getStocksFroItem),
-    path('category', handleCategories)
+    path('itemstock/<int:item_id>', getStocksFroItem),
+    path('stocks/<int:id>', handleSpecifcStock),
+    path('categories', handleCategories)
 ]
+    

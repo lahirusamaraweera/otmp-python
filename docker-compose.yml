@@ -2,13 +2,13 @@ version: '3'
 
 services:
   db:
-    build: ./db/
+    build: ./docker/db/
     ports:
       - "30307:3306"
     environment:
       POSTGRES_PASSWORD: root
   web:
-    build: .
+    build: ./docker/app/
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code

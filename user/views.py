@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from common.baseResponder import baseResponder
+from common.helpers.responseHelper import responseHelper
 import datetime
 
 def current_datetime(request):

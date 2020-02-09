@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from http import HTTPStatus
 import json
 
-class baseResponder:
+class responseHelper:
 
     headers = {}
     content_type = 'text/plain'

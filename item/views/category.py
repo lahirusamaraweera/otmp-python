@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from common.baseResponder import baseResponder
+from common.helpers.responseHelper import responseHelper
 from item.models.category import category
 import json
 
 
 def handleCategories(request):
     dataset = {}
-    br = baseResponder('application/json')
+    br = responseHelper('application/json')
     if("POST" == request.method):
         payload = json.loads(request.body)
         new_category = category()
@@ -19,7 +19,7 @@ def handleCategories(request):
 
 def handleSpecificCategory(request, id):
     related_category = category.getById(category, id)
-    br = baseResponder('application/json')
+    br = responseHelper('application/json')
     if(False == related_category):
         return br.success({})
     if("POST" == request.method):

@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from common.baseResponder import baseResponder
+from common.helpers.responseHelper import responseHelper
 from item.models.item import item
 import json
 
 def handleItems(request):
     dataset = {}
-    br = baseResponder('application/json')
+    br = responseHelper('application/json')
     if("POST" == request.method):
         payload = json.loads(request.body)
         new_item = item()
@@ -19,7 +19,7 @@ def handleItems(request):
 def handleSpecifcItem(request, id):
 
     related_item = item.getById(item, id)
-    br = baseResponder('application/json')
+    br = responseHelper('application/json')
     if(False == related_item):
         return br.success({})
     if("POST" == request.method):

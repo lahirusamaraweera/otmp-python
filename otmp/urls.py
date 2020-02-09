@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user.views import current_datetime
-from item.views import getAllItems
+from item.views import handleItems, handleSpecifcItem, handleCategories
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', current_datetime),
-    path('items/', getAllItems)
+    path('items', handleItems),
+    path('items/<int:id>', handleSpecifcItem),
+    path('category', handleCategories)
 ]

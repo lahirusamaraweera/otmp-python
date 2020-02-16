@@ -5,6 +5,8 @@ services:
     build: ./docker/db/
     ports:
       - "30307:3306"
+    volumes:
+      - db_data:/var/lib/mysq
     environment:
       POSTGRES_PASSWORD: root
   web:
@@ -13,7 +15,10 @@ services:
     volumes:
       - .:/code
     ports:
+      - "90:80"
       - "8000:8000"
       - "4201:4200"
     depends_on:
       - db
+volumes:
+  db_data:

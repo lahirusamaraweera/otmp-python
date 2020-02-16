@@ -9,6 +9,7 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 })
 export class AppComponent {
   title = 'my-app';
+  slider_val = 10;
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';

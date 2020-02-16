@@ -1,2 +1,2 @@
 #bin/bash
-cd /code/static && ng serve --host 0.0.0.0
+cd /code/static && ./dev-angular.sh

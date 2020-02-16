@@ -12,3 +12,11 @@
   .example-margin {
     margin: 0 10px;
   }
+
+.m-w-100{
+    max-width: 500px;
+}
+.item-align-center{
+    align-self: center;
+    align-items: center;
+}

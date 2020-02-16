@@ -38,7 +38,7 @@ python manage.py createapp <app_name>
 
 ## To update the file permissions
 
-Once you create a app in the docker conatiner, you will not be able to edit the fiels since docker conatiners are running as root. so you can use following commandto update file permission.
+Once you create a django app in the docker conatiner, you will not be able to edit the fiels since docker conatiners are running as root. so you can use following commandto update file permission.
 
 ```bash
 sudo chown -R $USER:$USER .

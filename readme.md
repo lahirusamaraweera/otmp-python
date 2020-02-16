@@ -38,7 +38,7 @@ python manage.py createapp <app_name>
 
 ## To update the file permissions
 
-Once you create a app in the docker conatiner, you will not be able to edit the fiels since docker conatiners are running as root. so you can use following commandto update file permission.
+Once you create a django app in the docker conatiner, you will not be able to edit the fiels since docker conatiners are running as root. so you can use following commandto update file permission.
 
 ```bash
 sudo chown -R $USER:$USER .
@@ -51,7 +51,9 @@ To run front end angular application
 
 1. Login to the container
 ```bash
-sudo docker exec -it <contaner_name> bash   
+sudo docker exec -it <contaner_name> bash 
+# in our case container name will be otmp_web_1 , accordingly command will be as follows
+sudo docker exec -it otmp_web_1 bash  
 ```
 2. change the path the static
 ```bash

@@ -51,7 +51,9 @@ To run front end angular application
 
 1. Login to the container
 ```bash
-sudo docker exec -it <contaner_name> bash   
+sudo docker exec -it <contaner_name> bash 
+# in our case container name will be otmp_web_1 , accordingly command will be as follows
+sudo docker exec -it otmp_web_1 bash  
 ```
 2. change the path the static
 ```bash

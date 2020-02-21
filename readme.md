@@ -64,3 +64,11 @@ cd static
 ng serve --host 0.0.0.0
 ```
 4. now you can visit the anguar app in http://localhost:4201
+
+
+# Running the django app using Gunicorn - PROD
+
+```bash
+cd /code
+gunicorn -b 0.0.0.0:80 otmp.wsgi:application
+```

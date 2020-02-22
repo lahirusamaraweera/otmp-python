@@ -55,9 +55,9 @@ sudo docker exec -it <contaner_name> bash
 # in our case container name will be otmp_web_1 , accordingly command will be as follows
 sudo docker exec -it otmp_web_1 bash  
 ```
-2. change the path the static
+2. change the path to /front
 ```bash
-cd static
+cd front
 ```
 3. run the app
 ```bash

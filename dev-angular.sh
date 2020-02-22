@@ -1,2 +1,2 @@
 #bin/bash
-cd /code/static && ./dev-angular.sh
+cd /code/front && ./dev-angular.sh

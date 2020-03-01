@@ -16,7 +16,7 @@ def handleItems(request):
         dataset = item.getAll(item)
     return br.success(dataset)
 
-def handleSpecifcItem(request, id):
+def handleASpecifcItem(request, id):
 
     related_item = item.getById(item, id)
     br = responseHelper('application/json')

@@ -17,7 +17,6 @@ services:
     ports:
       - "8000:8000"
       - "4201:4200"
-      - "90:80"
     depends_on:
       - db
   # wsgi:

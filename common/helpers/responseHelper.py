@@ -4,14 +4,22 @@ import json
 
 class responseHelper:
 
-    headers = {}
+    headers = {
+        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Headers" : "*",
+        "Access-Control-Allow-Methods" : "*",
+    }
     content_type = 'text/plain'
 
     def __init__(self, content_type):
         self.content_type = content_type
 
     def setHeaders(self, headers):
+        return
         self.headers = headers
+    
+    def setHeader(self, key, value):
+        self.headers[key] = value
 
     def setContentType(self, type):
         self.content_type = type

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from http import HTTPStatus
-from authTokenHelper import authTokenHelper
+from common.helpers.authTokenHelper import authTokenHelper
 import json
 
 class responseHelper:
@@ -12,7 +12,7 @@ class responseHelper:
     }
     content_type = 'text/plain'
 
-    def __init__(self, content_type):
+    def __init__(self, content_type = 'text/plain'):
         self.content_type = content_type
 
     def setHeaders(self, headers):
@@ -48,9 +48,13 @@ class responseHelper:
         return response
     
     @staticmethod
-    def isTokenInvalid(request){
+    def isTokenInvalid(request):
         return authTokenHelper.validateToken(request)
-    }
-
+    
+    @staticmethod
+    def getUnauthorizedResponse():
+        rh = responseHelper('application/json')
+        return rh.unauthorized()
+    
 
 

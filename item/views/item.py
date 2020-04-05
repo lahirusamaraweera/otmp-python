@@ -4,9 +4,8 @@ from item.models.item import item
 import json
 
 def handleItems(request):
-    headers = request.headers;
-    if( 'User-Agent' in headers):
-        print(headers['User-Agent'])
+    if(not responseHelper.isTokenInvalid(request)):
+        return responseHelper.getUnauthorizedResponse()
     
     dataset = {}
     br = responseHelper('application/json')

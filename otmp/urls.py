@@ -6,6 +6,8 @@ from item.views.item import handleItems, handleASpecifcItem
 from item.views.category import handleCategories, handleSpecificCategory
 from item.views.stock import getStocksFroItem, handleSpecifcStock
 
+from authentication.views.auth import handleLogin
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', current_datetime),
@@ -14,5 +16,6 @@ urlpatterns = [
     path('api/itemstock/<int:item_id>', getStocksFroItem),
     path('api/stocks/<int:id>', handleSpecifcStock),
     path('api/categories', handleCategories),
-    path('api/categories/<int:id>', handleSpecificCategory)
+    path('api/categories/<int:id>', handleSpecificCategory),
+    path('api/login', handleLogin)
 ]

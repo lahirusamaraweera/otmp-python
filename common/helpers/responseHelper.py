@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from http import HTTPStatus
+from authTokenHelper import authTokenHelper
 import json
 
 class responseHelper:
@@ -30,6 +31,9 @@ class responseHelper:
     def conflict(self, message):
         return self.respond(409, message)
 
+    def unauthorized(self):
+        return self.respond(403, 'You not allowed to acesss this resource')
+
     def respond(self, status_code, content):
         response = HttpResponse(content_type=self.content_type)
         if('application/json' == self.content_type):
@@ -42,6 +46,11 @@ class responseHelper:
                 response[key] = value
         
         return response
+    
+    @staticmethod
+    def isTokenInvalid(request){
+        return authTokenHelper.validateToken(request)
+    }
 
 
 

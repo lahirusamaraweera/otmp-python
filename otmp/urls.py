@@ -7,6 +7,8 @@ from item.views.category import handleCategories, handleSpecificCategory
 from item.views.stock import getStocksFroItem, handleSpecifcStock
 
 from authentication.views.auth import handleLogin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,4 +20,4 @@ urlpatterns = [
     path('api/categories', handleCategories),
     path('api/categories/<int:id>', handleSpecificCategory),
     path('api/login', handleLogin)
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

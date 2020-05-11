@@ -13,11 +13,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', current_datetime),
-    path('api/items', handleItems),
+    path('api/items', handleItems), 
     path('api/items/<int:id>', handleASpecifcItem),
     path('api/itemstock/<int:item_id>', getStocksFroItem),
     path('api/stocks/<int:id>', handleSpecifcStock),
     path('api/categories', handleCategories),
     path('api/categories/<int:id>', handleSpecificCategory),
     path('api/login', handleLogin)
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

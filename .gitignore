@@ -3,5 +3,12 @@ otmp/bin
 otmp/include
 otmp/lib64
 otmp/lib
+otmp/__pycache__
+authentication/__pycache__
+authentication/**/__pycache__
+item/__pycache__
+item/**/__pycache__
+otmp/**/__pycache__
 static/dist
 env
+*.pyc   

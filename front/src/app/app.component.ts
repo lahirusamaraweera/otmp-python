@@ -23,6 +23,7 @@ export class AppComponent {
     this.ItemService.getItems()
         .subscribe(itmes => {
           this.items  = <any>itmes;
+          console.log(this.items.abc)
         });
   }
 

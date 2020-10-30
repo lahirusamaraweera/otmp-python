@@ -5,7 +5,7 @@ from common.helpers.authTokenHelper import authTokenHelper
 import json
 
 def handleItems(request):
-    
+
     dataset = {}
     if("POST" == request.method):
         if(not authTokenHelper.validateToken(request) ):
@@ -36,3 +36,10 @@ def handleASpecifcItem(request, id):
             return br.conflict('something went wrong')
            
     return br.success(related_item.toDic())
+
+def handleCategoryItems(request, category_id):
+    related_records = item.find(item, {
+        'conditions' : 'category_id = %s',
+        'bind' : [category_id]
+    })
+    return responseHelper.getSuccessResponse(item.getAllToArray(related_records))

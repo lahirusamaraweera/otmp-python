@@ -26,6 +26,14 @@ class BaseModel():
             return False
         return record
 
+    @staticmethod
+    def find(cls, condition):
+        records = cls.objects.raw(
+            'SELECT * FROM '+ cls._meta.db_table +' WHERE '+ condition['conditions'],
+            tuple(condition['bind'])
+        ) 
+        return records
+
     def setAttribute(self, attribute, value):
         if(attribute in self.SKIPPED_ATTRIBTES):
             print('Skipped attribute')

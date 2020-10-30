@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 from user.views import current_datetime
-from item.views.itemView import handleItems, handleASpecifcItem
+from item.views.itemView import handleItems, handleASpecifcItem, handleCategoryItems
 from item.views.categoryView import handleCategories, handleSpecificCategory
 from item.views.stockView import getStocksFroItem, handleSpecifcStock
 
@@ -19,6 +19,7 @@ urlpatterns = [
     path('api/stocks/<int:id>', handleSpecifcStock),
     path('api/categories', handleCategories),
     path('api/categories/<int:id>', handleSpecificCategory),
+    path('api/categories/<int:category_id>/items', handleCategoryItems),
     path('api/login', handleLogin),
     path('api/register', handleSignup)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

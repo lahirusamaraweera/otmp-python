@@ -20,13 +20,5 @@ services:
       - "4201:4200"
     depends_on:
       - db
-  # wsgi:
-  #   build: ./docker/wsgi
-  #   volumes:
-  #     - .:/code
-  #   ports:
-  #     - "90:80"
-  #   depends_on:
-  #     - db
 volumes:
   db_data:

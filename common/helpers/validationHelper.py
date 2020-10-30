@@ -2,6 +2,6 @@
 
 def validateStructure(data_dict, structure):
     for field in structure:
-        if ( not hasattr(data_dict, field)):
+        if ( not field in data_dict.keys() ):
             return False
     return True

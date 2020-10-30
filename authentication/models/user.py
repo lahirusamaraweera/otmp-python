@@ -15,6 +15,7 @@ class user(models.Model, BaseModel):
     district = models.CharField(max_length=200)
     post_code = models.CharField(max_length=200, null=True)
     country = models.CharField(max_length=100, null=True)
+    password_again = None
 
     raw_password = None
 
@@ -24,9 +25,25 @@ class user(models.Model, BaseModel):
             "firstname" : self.firstname,
         }
     def save(self, *args, **kwargs):
-        if(self.id is None ):
-            self.password = hash_password(self.raw_password)
-        return super(user, self).save(*args, **kwargs)
+        try :
+            if(self.password is None):
+                self.error_message = 'empty passwords'
+                return False
+            if(self.id is None ):
+                self.password_hash = hash_password(self.password)
+            return super(user, self).save(*args, **kwargs)
+        except Exception as e:
+            self.error_message = str(e)
+            return False    
+
+    def signup(self):
+        if(self.password != self.password_again):
+            self.error_message = 'passwords are not matching'
+            return False
+        if(False != user.getUserByEmail(self.email)):
+            self.error_message = 'user already exists with this email'
+            return False
+        return self.save()
     
     def verifyPassword(self, password):
         return verify_password(self.password, password)
@@ -34,14 +51,14 @@ class user(models.Model, BaseModel):
     @staticmethod
     def getUserByEmail(email):
         try:
-            user = user.objects.get(email=email)
-        except Employee.DoesNotExist:
+            return user.objects.get(email=email)
+        except user.DoesNotExist:
             return False
-        except Employee.MultipleObjectsReturned:
+        except user.MultipleObjectsReturned:
             return False
 
     @staticmethod 
-    def verifyUser(email, password, passowrd_again):
+    def getUserOnAuthenticate(email, password, passowrd_again):
         if( password != passowrd_again):
             return False
         filtered_user = user.getUserByEmail(email)

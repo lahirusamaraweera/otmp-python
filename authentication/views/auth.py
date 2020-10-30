@@ -13,9 +13,20 @@ def handleLogin(request):
     if( not validateStructure(payload,["email","password","password_again"])):
         return responseHelper.getUnauthorizedResponse()
 
+    existing_user = user.getUserOnAuthenticate(payload['email'], payload['password'], payload['password_again'])
+    if ( False == existing_user ):
+        return responseHelper.getUnauthorizedResponse()
 
 def handleSignup(request):
     if("POST" != request.method):
         return responseHelper.getUnauthorizedResponse()
+
     payload = json.loads(request.body)
-    return responseHelper.getUnauthorizedResponse()
+    if( not validateStructure(payload,["email","password","password_again"])):
+        return responseHelper.conflict("Invalid payload")
+    
+    user_model = user()
+    user_model.setAll(payload)
+    if(False ==  user_model.signup()):
+        return responseHelper.getConflictResponse(user_model.error_message)
+    return responseHelper.getSuccessResponse(user_model.toDic())

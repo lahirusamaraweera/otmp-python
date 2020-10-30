@@ -66,9 +66,16 @@ ng serve --host 0.0.0.0
 4. now you can visit the anguar app in http://localhost:4201
 
 
-# Running the django app using Gunicorn - PROD
+
+# Running the app on Production
+
+1. Login to the container
+2. Start gnunicorn
+```bash
+cd /code && ./prod-run-server-1-gunicorn.sh
+```
+3. Start nginx
 
 ```bash
-cd /code
-gunicorn -b 0.0.0.0:80 otmp.wsgi:application
+cd /code && ./prod-run-server-2-nginx.sh
 ```

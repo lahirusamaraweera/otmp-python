@@ -56,5 +56,13 @@ class responseHelper:
         rh = responseHelper('application/json')
         return rh.unauthorized()
     
-
+    @staticmethod
+    def getSuccessResponse(response):
+        rh = responseHelper('application/json')
+        return rh.success(response)
+    
+    @staticmethod
+    def getConflictResponse(response):
+        rh = responseHelper('application/json')
+        return rh.conflict(response)
 

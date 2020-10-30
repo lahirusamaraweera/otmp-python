@@ -2,9 +2,9 @@ from django.contrib import admin
 from django.urls import path
 
 from user.views import current_datetime
-from item.views.item import handleItems, handleASpecifcItem
-from item.views.category import handleCategories, handleSpecificCategory
-from item.views.stock import getStocksFroItem, handleSpecifcStock
+from item.views.itemView import handleItems, handleASpecifcItem
+from item.views.categoryView import handleCategories, handleSpecificCategory
+from item.views.stockView import getStocksFroItem, handleSpecifcStock
 
 from authentication.views.authView import handleLogin, handleSignup
 from django.conf import settings

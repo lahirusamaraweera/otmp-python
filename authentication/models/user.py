@@ -3,21 +3,25 @@ from common.baseModel import BaseModel
 from common.helpers.passwordHelper import hash_password, verify_password
 
 class user(models.Model, BaseModel):
+
+    SKIPPED_ATTRIBTES = ['id', 'password_hash']
+
     firstname = models.CharField(max_length = 500)
     lastname = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length = 500)
     phone = models.CharField(max_length=200)
     otp = models.CharField(max_length=10, null=True)
-    password = models.CharField(max_length=200)
+    password_hash = models.CharField(max_length=500)
     address_line_1 = models.CharField(max_length=200)
     address_line_2 = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200)
     district = models.CharField(max_length=200)
     post_code = models.CharField(max_length=200, null=True)
     country = models.CharField(max_length=100, null=True)
-    password_again = None
 
-    raw_password = None
+    #virtual fields
+    password = None
+    password_again = None
 
     def toDic(self):
         return {
@@ -46,7 +50,7 @@ class user(models.Model, BaseModel):
         return self.save()
     
     def verifyPassword(self, password):
-        return verify_password(self.password, password)
+        return verify_password(self.password_hash, password)
 
     @staticmethod
     def getUserByEmail(email):
@@ -64,5 +68,7 @@ class user(models.Model, BaseModel):
         filtered_user = user.getUserByEmail(email)
         if(False == filtered_user):
             return False
-        return filtered_user.verifyPassword(password)
+        if(False != filtered_user.verifyPassword(password)):
+            return filtered_user
+        return False
         

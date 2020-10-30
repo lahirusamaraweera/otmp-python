@@ -6,7 +6,7 @@ from item.views.item import handleItems, handleASpecifcItem
 from item.views.category import handleCategories, handleSpecificCategory
 from item.views.stock import getStocksFroItem, handleSpecifcStock
 
-from authentication.views.auth import handleLogin, handleSignup
+from authentication.views.authView import handleLogin, handleSignup
 from django.conf import settings
 from django.conf.urls.static import static
 

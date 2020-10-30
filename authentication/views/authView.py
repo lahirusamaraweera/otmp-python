@@ -2,6 +2,7 @@ from authentication.models.user import user
 from authentication.models.authToken import authToken 
 from common.helpers.responseHelper import responseHelper
 from common.helpers.validationHelper import validateStructure
+from common.helpers.datetimeHelper import getFormatedDateTime
 import json
 
 def handleLogin(request):
@@ -16,6 +17,13 @@ def handleLogin(request):
     existing_user = user.getUserOnAuthenticate(payload['email'], payload['password'], payload['password_again'])
     if ( False == existing_user ):
         return responseHelper.getUnauthorizedResponse()
+
+    auth_token = authToken.generateUserToken(existing_user)
+    token_response = {
+        'token' : auth_token.token_raw,
+        'expiry' : getFormatedDateTime( auth_token.expire_date )
+    }
+    return responseHelper.getSuccessResponse(token_response)
 
 def handleSignup(request):
     if("POST" != request.method):

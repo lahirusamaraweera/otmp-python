@@ -1,15 +1,16 @@
 from django.shortcuts import render
 from common.helpers.responseHelper import responseHelper
 from item.models.item import item
+from common.helpers.authTokenHelper import authTokenHelper
 import json
 
 def handleItems(request):
-    # if(not responseHelper.isTokenInvalid(request)):
-    #     return responseHelper.getUnauthorizedResponse()
     
     dataset = {}
-    br = responseHelper('application/json')
     if("POST" == request.method):
+        if(not authTokenHelper.validateToken(request) ):
+            return responseHelper.getUnauthorizedResponse()
+
         payload = json.loads(request.body)
         new_item = item()
         new_item.setAll(payload)
@@ -17,9 +18,12 @@ def handleItems(request):
         dataset = new_item.toDic()
     else:
         dataset = item.getAll(item)
-    return br.success(dataset)
+    return responseHelper.getSuccessResponse(dataset)
 
 def handleASpecifcItem(request, id):
+
+    if(not authTokenHelper.validateToken(request) ):
+        return responseHelper.getUnauthorizedResponse()
 
     related_item = item.getById(item, id)
     br = responseHelper('application/json')

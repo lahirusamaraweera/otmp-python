@@ -54,7 +54,9 @@ class authToken(models.Model, BaseModel):
     @staticmethod
     def validateToken(client_token):
         try:
-            return authToken.objects.get(token=client_token)
+            return authToken.objects.get(
+                token=client_token, 
+                expire_date__gt=datetime.datetime.today())
         except authToken.DoesNotExist:
             return False
         except authToken.MultipleObjectsReturned:

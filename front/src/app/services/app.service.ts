@@ -17,4 +17,9 @@ export class ItemService {
       var url = this.getBaseUrl() + '/api/items';
       return this.http.get(url);
   }
+
+  getCategories() {
+      var url = this.getBaseUrl() + '/api/categories';
+      return this.http.get(url);
+  }
 }

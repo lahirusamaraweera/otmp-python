@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <div class="main">
   <div class="container">
     <div class="row">
@@ -7,12 +8,7 @@
             <h2>Let's pick items to continue</h2><hr>
             <div class="row">
               <div class="col-md-4" *ngFor="let item of items">
-                <div class="pad-10 card">
-                  <div class="card-body">
-                    <h4>{{item.name}}</h4>
-                    {{item.description}}
-                  </div>
-                </div>
+                <item [item]="item"></item>
               </div>
             </div>
           </mat-card>

@@ -17,12 +17,17 @@ export class AppComponent {
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
   items = [];
+  categories = [];
 
   constructor(private ItemService: ItemService) { }
   getItems(): void {
     this.ItemService.getItems()
         .subscribe(itmes => {
           this.items  = <any>itmes;
+        });
+    this.ItemService.getCategories()
+        .subscribe(categories => {
+            this.categories = <any>categories;
         });
   }
 

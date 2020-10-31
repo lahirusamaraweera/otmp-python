@@ -8,7 +8,7 @@ class BaseModel():
     def getAll(cls):
         # print(cls)
         dataset = []
-        items = cls.objects.all()
+        items = cls.objects.filter(deleted=False)
         return cls.getAllToArray(items)
     
     @staticmethod

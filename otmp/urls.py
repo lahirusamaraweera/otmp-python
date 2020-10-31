@@ -11,8 +11,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', current_datetime),
+    path('api/admin/', admin.site.urls),
     path('api/items', handleItems), 
     path('api/items/<int:id>', handleASpecifcItem),
     path('api/itemstock/<int:item_id>', getStocksFroItem),

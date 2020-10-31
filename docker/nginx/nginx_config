@@ -1,8 +1,12 @@
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
-
-		location / {
-                proxy_pass http://localhost:81;
-        }
+        
+		location /api/ {
+                        proxy_pass http://localhost:81;
+                }
+                location / {
+                        root    /code/front/my-app;
+                        expires 30d;
+                }
 }

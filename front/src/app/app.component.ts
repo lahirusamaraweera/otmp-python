@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule} from '@angular/material/checkbox';
-import { ItemService } from './app.service';
+import { ItemService } from './services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,6 @@ export class AppComponent {
     this.ItemService.getItems()
         .subscribe(itmes => {
           this.items  = <any>itmes;
-          console.log(this.items.abc)
         });
   }
 

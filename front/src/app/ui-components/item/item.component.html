@@ -1,8 +1,8 @@
 <div class="pad-10 card">
     <mat-card class="example-card">
-        <mat-card-header class="margin-l-0">
-          <mat-card-title>{{item.name}}</mat-card-title>
-          <mat-card-subtitle>{{item.item_code}}</mat-card-subtitle>
+        <mat-card-header >
+          <mat-card-title class="margin-l-0">{{item.name}}</mat-card-title>
+          <mat-card-subtitle class="margin-l-0">{{item.item_code}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="{{item.img_url}}" alt="item image">
         <mat-card-content>
@@ -11,8 +11,11 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+          <mat-form-field class="width-100">
+            <mat-label>Qty</mat-label>
+            <input matInput type="number" min="1"  [(ngModel)]="qty" class="right-align">
+          </mat-form-field>
+          <button mat-button class="add-to-cart-button" >Add to Cart</button>
         </mat-card-actions>
       </mat-card>
 </div>

@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class itemComponent implements OnInit {
 
+  qty = 1;
   @Input()
   item
 

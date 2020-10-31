@@ -5,6 +5,15 @@
   margin-left: 0;
 }
 
-.mat-card-header-text {
-  margin: 0 0;
+.right-align {
+  text-align: right;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.add-to-cart-button {
+  margin: 0;
+  width: 100%;
 }

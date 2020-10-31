@@ -1,6 +1,18 @@
 <div class="pad-10 card">
-    <div class="card-body">
-      <h4>{{item.name}}</h4>
-        {{item.description}}
-    </div>
+    <mat-card class="example-card">
+        <mat-card-header class="margin-l-0">
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <mat-card-subtitle>{{item.item_code}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{item.img_url}}" alt="item image">
+        <mat-card-content>
+          <p>
+            {{item.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
 </div>

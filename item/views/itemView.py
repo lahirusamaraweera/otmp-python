@@ -6,7 +6,7 @@ import json
 
 def handleItems(request):
 
-    dataset = {}
+    dataset = []
     if("POST" == request.method):
         if(not authTokenHelper.validateToken(request) ):
             return responseHelper.getUnauthorizedResponse()
@@ -17,8 +17,16 @@ def handleItems(request):
         new_item.save()
         dataset = new_item.toDic()
     else:
-        dataset = item.getAll(item)
-    return responseHelper.getSuccessResponse(dataset)
+        search_name = request.GET.get('name', False)
+        if(False != search_name):
+            related_records = item.find(item, {
+                'conditions' : 'name LIKE %s AND deleted = 0',
+                'bind' : ["%"+search_name+"%"]
+            })
+            dataset = item.getAllToArray(related_records)
+        else :
+            dataset = item.getAll(item)
+        return responseHelper.getSuccessResponse(dataset)
 
 def handleASpecifcItem(request, id):
 

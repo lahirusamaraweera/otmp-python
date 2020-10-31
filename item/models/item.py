@@ -9,6 +9,7 @@ class item(models.Model, BaseModel):
     item_code = models.CharField(max_length = 100)
     price = models.DecimalField(max_digits=9, decimal_places=2)
     currency = models.CharField(max_length=10)
+    img_url = models.CharField(max_length=1000, default=None)
     deleted = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     category = models.ForeignKey(
@@ -22,6 +23,7 @@ class item(models.Model, BaseModel):
             "name" : self.name,
             "price" : float(self.price),
             "item_code" : self.item_code,
+            "img_url" : self.img_url,
             "currency" : self.currency,
             "description" : self.description,
             "is_active" : self.is_active,

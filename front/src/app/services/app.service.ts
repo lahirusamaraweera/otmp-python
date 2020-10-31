@@ -22,4 +22,9 @@ export class ItemService {
       var url = this.getBaseUrl() + '/api/categories';
       return this.http.get(url);
   }
+
+  searchItemsByname(name:string) {
+      var url = this.getBaseUrl() + '/api/items?name=' + name;
+      return this.http.get(url);
+  }
 }

@@ -1,3 +1,10 @@
 .pad-10{
     margin: 8px;
   }
+.margin-l-0 {
+  margin-left: 0;
+}
+
+.mat-card-header-text {
+  margin: 0 0;
+}

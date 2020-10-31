@@ -3,12 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { ItemService } from './services/app.service';
+import { Pipe, PipeTransform } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'my-app';
   slider_val = 10;
@@ -18,6 +21,9 @@ export class AppComponent {
   disabled = false;
   items = [];
   categories = [];
+  filter = null;
+  filterargs = {title: 'hello'};
+
 
   constructor(private ItemService: ItemService) { }
   getItems(): void {
@@ -31,8 +37,19 @@ export class AppComponent {
         });
   }
 
+  getItemFilterArg() {
+    return { name: this.filter };
+  }
+
   ngOnInit() {
     this.getItems();
+  }
+
+  save(event) {
+    this.ItemService.searchItemsByname(event.target.value)
+        .subscribe(itmes => {
+          this.items  = <any>itmes;
+        });
   }
 
 }

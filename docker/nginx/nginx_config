@@ -6,7 +6,7 @@ server {
                         proxy_pass http://localhost:81;
                 }
                 location / {
-                        root    /code/front/my-app;
+                        root    /code/front/dist/my-app;
                         expires 30d;
                 }
 }

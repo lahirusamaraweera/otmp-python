@@ -10,5 +10,6 @@ class category(models.Model, BaseModel):
         return {
             "id" : self.id,
             "name" : self.name,
-            "description" : self.description
+            "description" : self.description,
+            "deleted" : self.deleted
         } 

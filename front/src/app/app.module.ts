@@ -22,6 +22,10 @@ import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
 import { itemComponent } from './ui-components/item/item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './ui-components/search/search.component';
+import { CartComponent } from './ui-components/cart/cart.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -29,7 +33,8 @@ import { SearchComponent } from './ui-components/search/search.component';
     AppComponent,
     NavBarComponent,
     itemComponent,
-    SearchComponent
+    SearchComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,8 @@ import { SearchComponent } from './ui-components/search/search.component';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatBottomSheetModule,
+    MatSnackBarModule,
     NgbModule
   ],
   providers: [],

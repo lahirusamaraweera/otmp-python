@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Your cart items</h2>
+    </div>
+</div>  
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr *ngIf="isEmptyCart()">
+                <td colspan="3" class="align-center">
+                    Empty cart
+                </td>
+            </tr>
+            <tr *ngFor="let item of getCartItems()">
+                <td>{{item.name}}</td>
+                <td class="align-right">{{item.qty}} x {{item.price}} {{item.currency}} each.</td>
+                <td class="align-right">{{item.total}} {{item.currency}}. </td>
+            </tr>
+            <tr>
+                <th class="align-right" colspan="2">Total</th>
+                <th class="align-right">{{getCartTotal()}} {{getTotalCurrency()}} </th>
+            </tr>
+        </table>
+    </div>
+</div> 

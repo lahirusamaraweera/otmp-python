@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { ItemService } from './services/app.service';
 import { Pipe, PipeTransform } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { CartComponent } from './ui-components/cart/cart.component';
+import { shoppingCart } from './services/shoppingCart';
 
 
 @Component({
@@ -25,7 +28,12 @@ export class AppComponent {
   filterargs = {title: 'hello'};
 
 
-  constructor(private ItemService: ItemService) { }
+  constructor(
+    private ItemService: ItemService, 
+    private _bottomSheet: MatBottomSheet,
+    private shoppingCart : shoppingCart ) { 
+    }
+
   getItems(): void {
     this.ItemService.getItems()
         .subscribe(itmes => {
@@ -50,6 +58,14 @@ export class AppComponent {
         .subscribe(itmes => {
           this.items  = <any>itmes;
         });
+  }
+
+  showCart(): void {
+    this._bottomSheet.open(CartComponent);
+  }
+
+  getCartItemCount() {
+    return this.shoppingCart.getCartItemCount();
   }
 
 }

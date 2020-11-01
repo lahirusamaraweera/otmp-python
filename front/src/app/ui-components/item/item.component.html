@@ -15,7 +15,7 @@
             <mat-label>Qty</mat-label>
             <input matInput type="number" min="1"  [(ngModel)]="qty" class="right-align">
           </mat-form-field>
-          <button mat-button class="add-to-cart-button" >Add to Cart</button>
+          <button mat-button class="add-to-cart-button" (click)="addtoCart()" >Add to Cart</button>
         </mat-card-actions>
       </mat-card>
 </div>

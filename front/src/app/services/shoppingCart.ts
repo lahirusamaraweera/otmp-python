@@ -54,5 +54,11 @@ export class shoppingCart {
         return '';
     }
 
+    removeCartItem(index : number) {
+        if(this.getCartItemCount() > index){
+            this.items.splice(index, 1);
+        }
+    }
+
   
 }

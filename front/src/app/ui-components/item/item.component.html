@@ -9,11 +9,14 @@
           <p>
             {{item.description}}
           </p>
+          <div class="alert alert-secondary item-price" role="alert">
+            {{ item.price | number:'1.2-2' }} {{item.currency}}
+          </div>
         </mat-card-content>
         <mat-card-actions>
           <mat-form-field class="width-100">
             <mat-label>Qty</mat-label>
-            <input matInput type="number" min="1"  [(ngModel)]="qty" class="right-align">
+            <input matInput type="number" min="1"  [(ngModel)]="qty" class="item-price">
           </mat-form-field>
           <button mat-button class="add-to-cart-button" (click)="addtoCart()" >Add to Cart</button>
         </mat-card-actions>

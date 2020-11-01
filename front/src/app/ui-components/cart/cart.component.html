@@ -5,20 +5,26 @@
 </div>  
 <div class="row">
     <div class="col-md-12">
-        <table class="table">
+        <table class="table custom">
             <tr *ngIf="isEmptyCart()">
-                <td colspan="3" class="align-center">
+                <td colspan="4" class="align-center">
                     Empty cart
                 </td>
             </tr>
-            <tr *ngFor="let item of getCartItems()">
+            <tr *ngFor="let item of getCartItems(); let indexOfelement=index;">
                 <td>{{item.name}}</td>
-                <td class="align-right">{{item.qty}} x {{item.price}} {{item.currency}} each.</td>
-                <td class="align-right">{{item.total}} {{item.currency}}. </td>
+                <td class="align-right">{{item.qty}} x {{item.price | number:'1.2-2' }} {{item.currency}} each.</td>
+                <td class="align-right">{{item.total | number:'1.2-2'}} {{item.currency}}. </td>
+                <td> 
+                    <button mat-icon-button (click)="removeItemFromCart(indexOfelement)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </td>
             </tr>
             <tr>
                 <th class="align-right" colspan="2">Total</th>
-                <th class="align-right">{{getCartTotal()}} {{getTotalCurrency()}} </th>
+                <th class="align-right">{{getCartTotal() | number:'1.2-2' }} {{getTotalCurrency()}} </th>
+                <th></th>
             </tr>
         </table>
     </div>

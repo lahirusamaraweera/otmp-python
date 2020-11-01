@@ -42,4 +42,8 @@ export class CartComponent implements OnInit {
     return this._shoppingCart.getTotalCurrency();
   }
 
+  removeItemFromCart(index) {
+    this._shoppingCart.removeCartItem(index);
+  } 
+
 }

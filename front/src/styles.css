@@ -10,3 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .align-center {
     text-align: center;
 }
+
+.v-align-middle {
+    vertical-align: center !important;
+}

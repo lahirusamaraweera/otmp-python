@@ -44,6 +44,8 @@ Once you create a django app in the docker conatiner, you will not be able to ed
 sudo chown -R $USER:$USER .
 ```
 
+## To create super user
+
 
 ## How to run angular application
 

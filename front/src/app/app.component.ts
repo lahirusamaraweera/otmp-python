@@ -55,8 +55,8 @@ export class AppComponent {
 
   save(event) {
     this.ItemService.searchItemsByname(event.target.value)
-        .subscribe(itmes => {
-          this.items  = <any>itmes;
+        .subscribe(items => {
+          this.items  = <any>items;
         });
   }
 

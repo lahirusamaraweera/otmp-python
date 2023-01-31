@@ -2,7 +2,7 @@
 from django.shortcuts import get_object_or_404
 
 class BaseModel():
-    SKIPPED_ATTRIBTES = ['id']
+    SKIPPED_ATTRIBUTES = ['id']
 
     @staticmethod
     def getAll(cls):
@@ -35,7 +35,7 @@ class BaseModel():
         return records
 
     def setAttribute(self, attribute, value):
-        if(attribute in self.SKIPPED_ATTRIBTES):
+        if(attribute in self.SKIPPED_ATTRIBUTES):
             print('Skipped attribute')
             return
         if(self.isPropertyExists(attribute)):

@@ -4,7 +4,7 @@ from common.helpers.passwordHelper import hash_password, verify_password
 
 class user(models.Model, BaseModel):
 
-    SKIPPED_ATTRIBTES = ['id', 'password_hash']
+    SKIPPED_ATTRIBUTES = ['id', 'password_hash']
 
     firstname = models.CharField(max_length = 500)
     lastname = models.CharField(max_length=200, null=True)

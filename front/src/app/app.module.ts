@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule } from '@angular/router';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -26,7 +27,9 @@ import { CartComponent } from './ui-components/cart/cart.component';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { ShoppingViewComponent } from './pages/shopping/shoppingView.component';
 
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NavBarComponent,
     itemComponent,
     SearchComponent,
-    CartComponent
+    CartComponent,
+    ShoppingViewComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatBottomSheetModule,
     MatSnackBarModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

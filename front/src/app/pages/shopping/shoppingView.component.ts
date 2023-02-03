@@ -50,7 +50,7 @@ export class ShoppingViewComponent {
   }
 
   save(event) {
-    this.ItemService.searchItemsByname(event.target.value)
+    this.ItemService.searchItemsByName(event.target.value)
         .subscribe(items => {
           this.items  = <any>items;
         });

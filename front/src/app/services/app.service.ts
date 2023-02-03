@@ -23,7 +23,7 @@ export class ItemService {
       return this.http.get(url);
   }
 
-  searchItemsByname(name:string) {
+  searchItemsByName(name:string) {
       var url = this.getBaseUrl() + '/api/items?name=' + name;
       return this.http.get(url);
   }

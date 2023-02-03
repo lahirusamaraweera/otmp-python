@@ -28,6 +28,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ShoppingViewComponent } from './pages/shopping/shoppingView.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [];
 
@@ -38,7 +39,8 @@ const routes: Routes = [];
     itemComponent,
     SearchComponent,
     CartComponent,
-    ShoppingViewComponent
+    ShoppingViewComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
